@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tag Reader</title>
+    <style type="text/css">
+      h1{
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 36px;
+        color: #333;
+      }
+      img{
+        width: 200px;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+      }
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      li{
+        margin: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        color: #666;
+      }
+      p{
+        margin: 0;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        color: #333;
+      }
+      button{
+        margin-left: 10px;
+        margin-top: 10px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even){background-color: #f2f2f2}
+      th {
+        background-color: #4CAF50;
+        color: white;
+      }
+    </style>
+    <link rel="stylesheet" href="bootstrap-3.4.1-dist/css/bootstrap.css">
+    <script src="bootstrap-3.4.1-dist/js/bootstrap.js"></script>
+    <script
+  src="bootstrap-3.4.1-dist/js/jquery-3.6.4.js"
+  integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Tag Reader</h1>
+      <div class="row">
+        <div class="col-md-24 offset-md-3">
+          <img src="" alt="" class="img-fluid">
+
+          <input type="file" class="form-control-file">
+          <br>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>parameters:</td>
+                <td><p id="parameters"></p><button class="btn btn-primary" onclick="copyToClipboard('parameters')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>negative:</td>
+                <td><p id="negative"></p><button class="btn btn-primary" onclick="copyToClipboard('negative')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Seed:</td>
+                <td><p id="Seed"></p><button class="btn btn-primary" onclick="copyToClipboard('Seed')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Model hash:</td>
+                <td><p id="Model hash"></p><button class="btn btn-primary" onclick="copyToClipboard('Model hash')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Steps:</td>
+                <td><p id="Steps"></p><button class="btn btn-primary" onclick="copyToClipboard('Steps')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Sampler:</td>
+                <td><p id="Sampler"></p><button class="btn btn-primary" onclick="copyToClipboard('Sampler')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Eta:</td>
+                <td><p id="Eta"></p><button class="btn btn-primary" onclick="copyToClipboard('Eta')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>CFG scale:</td>
+                <td><p id="CFG scale"></p><button class="btn btn-primary" onclick="copyToClipboard('CFG scale')">Copy</button></td>
+              </tr>
+              <tr>
+                <td>Size:</td>
+                <td><p id="Size"></p><button class="btn btn-primary" onclick="copyToClipboard('Size')">Copy</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+<script type="text/javascript">
+function copyToClipboard(id) {
+    var copyText = document.getElementById(id);
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+  }
+// function handlefile(event){
+//   const file=event.target.files[0]
+//   console.log(event.target.files[0]);
+//   console.log(event.target.files[0].path);
+//   console.log(event.target.value);
+//   // console.log(URL.createObjectURL(file.value));
+// }
+    const para=document.getElementById('parameters');
+    const negative=document.getElementById('negative');
+    const Seed=document.getElementById('Seed');
+    const Model=document.getElementById('Model hash');
+    const Steps=document.getElementById('Steps');
+    const Sampler=document.getElementById('Sampler');
+    const Eta=document.getElementById('Eta');
+    const cfg=document.getElementById('CFG scale');
+    const Size=document.getElementById('Size');
+
+    const imgtag=document.querySelector('img');
+    const fileInput = document.querySelector('input[type="file"]');
+    fileInput.addEventListener('change', (event) => {
+      const file=event.target.files[0]
+      imgtag.src=file.path;
+      sendMessageToJulia(file.path);
+      // console.log(file.path);
+    });
+    function pri(s){
+      para.innerText = s["parameters"];
+      negative.innerText = s["negative"];
+      Seed.innerText = s["otherss"]["Seed"];
+      Model.innerText = s["otherss"]["Model hash"];
+      Steps.innerText = s["otherss"]["Steps"];
+      Sampler.innerText = s["otherss"]["Sampler"];
+      Eta.innerText = s["otherss"]["Eta"];
+      cfg.innerText = s["otherss"]["CFG scale"];
+      Size.innerText = s["otherss"]["Size"];
+    }
+
+  </script>
+</html>
