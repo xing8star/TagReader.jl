@@ -1,0 +1,100 @@
+---
+import pkg from "@material-tailwind/react";
+const { Button, Card } = pkg
+var substitle1=["parameters","negative","Seed",
+"Model hash","Steps","Sampler","Eta","CFG scale",
+"Size"
+];
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tag Reader</title>
+  </head>
+  <body>
+        <h1 class="text-center text-lg">Tag Reader</h1>
+        <div class="mx-16 my-auto">
+            <!-- <div class="flex flex-col"> -->
+                <div class="mx-0 my-5 text-center [&_*]:my-2">
+                    <img src="" alt="" class="h-96 w-full rounded-lg object-cover object-center shadow-xl shadow-blue-gray-900/50">
+                    <input type="file" class="block  text-sm text-gray-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-md file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-blue-500 file:text-white
+                    hover:file:bg-blue-600" />
+                </div>
+
+                <Card className="h-full w-full ">
+                    <table class="border-spacing-x-10 table-auto text-left">
+                        <thead>
+                        <tr class="[&_th]:border-b [&_th]:border-blue-gray-100 [&_th]:bg-blue-gray-50 ">
+                            <!-- {["Parameter"]} -->
+                            <th class="p-4 max-w-4">Parameter</th>
+                            <th class="p-4">Value</th>
+                            <th class="p-4">Operator</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {substitle1.map((head) => (
+                        <tr class="[&_td]:p-4 even:bg-blue-gray-50/50">
+                            <td>{head}:</td>
+                            <td><p id={head}></p></td>
+                            <td onclick={"copyToClipboard("+head+")"}>  
+                                <Button > Copy</Button>
+                            </td>
+                        </tr>))
+                        }
+
+                        </tbody>
+                    </table>
+                </Card>
+            <!-- </div> -->
+        </div>
+  </body>
+<script type="text/javascript">
+function copyToClipboard(id) {
+    var copyText = document.getElementById(id);
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+  }
+
+    const para=document.getElementById('parameters');
+    const negative=document.getElementById('negative');
+    const Seed=document.getElementById('Seed');
+    const Model=document.getElementById('Model hash');
+    const Steps=document.getElementById('Steps');
+    const Sampler=document.getElementById('Sampler');
+    const Eta=document.getElementById('Eta');
+    const cfg=document.getElementById('CFG scale');
+    const Size=document.getElementById('Size');
+
+    const imgtag=document.querySelector('img');
+    const fileInput = document.querySelector('input[type="file"]');
+    fileInput.addEventListener('change', (event) => {
+      const file=event.target.files[0]
+      imgtag.src=file.path;
+      sendMessageToJulia(file.path);
+      // console.log(file.path);
+    });
+    function pri(s){
+      para.innerText = s["parameters"];
+      negative.innerText = s["negative"];
+      Seed.innerText = s["otherss"]["Seed"];
+      Model.innerText = s["otherss"]["Model hash"];
+      Steps.innerText = s["otherss"]["Steps"];
+      Sampler.innerText = s["otherss"]["Sampler"];
+      Eta.innerText = s["otherss"]["Eta"];
+      cfg.innerText = s["otherss"]["CFG scale"];
+      Size.innerText = s["otherss"]["Size"];
+    }
+
+  </script>
+</html>

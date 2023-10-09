@@ -4,9 +4,10 @@ using Electron
 using JSON3
 
 app = Application()
-win = Window(app, URI("file://$(abspath("index2.html"))");options=Dict("width"=>1920,"height"=>1080,"webPreferences" => Dict("webSecurity" => false))
+const asset_path=abspath(joinpath("dist","index.html"))
+win = Window(app, URI("file://$asset_path");options=Dict("width"=>1920,"height"=>1080,"webPreferences" => Dict("webSecurity" => false))
 )
-# ;Electron.toggle_devtools(win)
+
 ch = msgchannel(win)
 while true
     try
@@ -22,4 +23,4 @@ while true
     a=JSON3.write(a)
     run(win,"""pri($a)""")
 end
-exit()
+run(app,"electron.app.quit()")

@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tag Reader</title><link rel="stylesheet" href="./_astro/index.b77595f2.css" /></head><body><h1 class="text-center text-lg">Tag Reader</h1><div class="mx-16 my-auto"><!-- <div class="flex flex-col"> --><div class="mx-0 my-5 text-center [&_*]:my-2"><img src="" alt="" class="h-96 w-full rounded-lg object-cover object-center shadow-xl shadow-blue-gray-900/50"><input type="file" class="block  text-sm text-gray-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-md file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-blue-500 file:text-white
+                    hover:file:bg-blue-600"></div><div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md h-full w-full"><table class="border-spacing-x-10 table-auto text-left"><thead><tr class="[&_th]:border-b [&_th]:border-blue-gray-100 [&_th]:bg-blue-gray-50 "><!-- {["Parameter"]} --><th class="p-4 max-w-4">Parameter</th><th class="p-4">Value</th><th class="p-4">Operator</th></tr></thead><tbody><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>parameters:</td><td><p id="parameters"></p></td><td onclick="copyToClipboard(parameters)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>negative:</td><td><p id="negative"></p></td><td onclick="copyToClipboard(negative)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>Seed:</td><td><p id="Seed"></p></td><td onclick="copyToClipboard(Seed)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>Model hash:</td><td><p id="Model hash"></p></td><td onclick="copyToClipboard(Model hash)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>Steps:</td><td><p id="Steps"></p></td><td onclick="copyToClipboard(Steps)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>Sampler:</td><td><p id="Sampler"></p></td><td onclick="copyToClipboard(Sampler)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>Eta:</td><td><p id="Eta"></p></td><td onclick="copyToClipboard(Eta)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>CFG scale:</td><td><p id="CFG scale"></p></td><td onclick="copyToClipboard(CFG scale)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr><tr class="[&_td]:p-4 even:bg-blue-gray-50/50"><td>Size:</td><td><p id="Size"></p></td><td onclick="copyToClipboard(Size)"><button class="align-middle select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" type="button"> Copy</button></td></tr></tbody></table></div><!-- </div> --></div><script type="text/javascript">
+function copyToClipboard(id) {
+    var copyText = document.getElementById(id);
+    var textArea = document.createElement("textarea");
+    textArea.value = copyText.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("Copy");
+    textArea.remove();
+  }
+
+    const para=document.getElementById('parameters');
+    const negative=document.getElementById('negative');
+    const Seed=document.getElementById('Seed');
+    const Model=document.getElementById('Model hash');
+    const Steps=document.getElementById('Steps');
+    const Sampler=document.getElementById('Sampler');
+    const Eta=document.getElementById('Eta');
+    const cfg=document.getElementById('CFG scale');
+    const Size=document.getElementById('Size');
+
+    const imgtag=document.querySelector('img');
+    const fileInput = document.querySelector('input[type="file"]');
+    fileInput.addEventListener('change', (event) => {
+      const file=event.target.files[0]
+      imgtag.src=file.path;
+      sendMessageToJulia(file.path);
+      // console.log(file.path);
+    });
+    function pri(s){
+      para.innerText = s["parameters"];
+      negative.innerText = s["negative"];
+      Seed.innerText = s["otherss"]["Seed"];
+      Model.innerText = s["otherss"]["Model hash"];
+      Steps.innerText = s["otherss"]["Steps"];
+      Sampler.innerText = s["otherss"]["Sampler"];
+      Eta.innerText = s["otherss"]["Eta"];
+      cfg.innerText = s["otherss"]["CFG scale"];
+      Size.innerText = s["otherss"]["Size"];
+    }
+
+  </script></body></html>
